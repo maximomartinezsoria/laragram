@@ -1,7 +1,7 @@
 @if(Auth::user()->id != $user->id)
     <?php $is_follow = false;?>
     @foreach ($follows as $follow)
-        @if($follow->followed == $user->id)
+        @if($follow->followed == $user->id && $follow->follower == Auth::user()->id)
             <?php $is_follow = true;?>
         @endif
     @endforeach
