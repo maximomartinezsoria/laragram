@@ -22,8 +22,12 @@ class UserController extends Controller{
 
         // get follows for the view
         $follows = Follow::get();
-        
-       // var_dump($follows);die;
+
+        // put the params in the url 
+        if(is_null($search) && isset($_GET['search-input']) ){
+            $search_get = $_GET['search-input'];
+            return redirect()->route('user.index', ['search' => $search_get ]);
+        }
 
         // if the user doesnt search anything, get all users
         if (is_null($search)) {

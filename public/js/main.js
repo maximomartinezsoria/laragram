@@ -45,5 +45,4 @@ function dislike(){
 $(document).ready(function(){
     like();    
     dislike();
-    search();
 });
